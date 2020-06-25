@@ -8,6 +8,8 @@ class Photographer(models.Model):
 
     def __str__(self):
         return self.first_name
+    def save_photographer(self):
+        self.save()    
 
 class tag(models.Model):
     name = models.CharField(max_length=30)
@@ -28,8 +30,11 @@ class Category(models.Model):
 class Photos(models.Model):
     name = models.CharField(max_length=40)
     description = models.TextField()
-    photographer = models.ForeignKey(Photographer, on_delete=models.CASCADE)
+    photographer = models.ForeignKey(Photographer,on_delete=models.CASCADE)
     tag = models.ManyToManyField(tag)
-    location = models.ForeignKey(Location, on_delete=CASCADE)
-    category = models.ForeignKey(Category, on_delete=CASCADE)
+    location = models.ForeignKey(Location,on_delete=models.CASCADE)
+    category = models.ForeignKey(Category,on_delete=models.CASCADE)
     pub_date = models.DateTimeField(auto_now_add=True)
+
+    def save_photo(self):
+        self.save()
