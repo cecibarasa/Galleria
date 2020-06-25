@@ -10,7 +10,26 @@ class Photographer(models.Model):
         return self.first_name
 
 class tag(models.Model):
-    category = models.CharField(max_length=30)
+    name = models.CharField(max_length=30)
 
     def __str__(self):
-        return self.category        
+        return self.name
+
+class Location(models.Model):
+    name = models.TextField()
+    def __str__(self):
+        return self.name
+
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+    def __str__(self):
+        return self.name
+
+class Photos(models.Model):
+    name = models.CharField(max_length=40)
+    description = models.TextField()
+    photographer = models.ForeignKey(Photographer, on_delete=models.CASCADE)
+    tag = models.ManyToManyField(tag)
+    location = models.ForeignKey(Location, on_delete=CASCADE)
+    category = models.ForeignKey(Category, on_delete=CASCADE)
+    pub_date = models.DateTimeField(auto_now_add=True)
