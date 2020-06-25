@@ -28,4 +28,8 @@ def convert_dates(dates):
 
     # Returning the actual day of the week
     day = days[day_number]
-    return day        
+    return day
+
+def picture_of_day(request):
+    date = dt.date.today()
+    return render(request, 'all-photos/photos.html', {"date": date,})          
