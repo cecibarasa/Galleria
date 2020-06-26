@@ -1,4 +1,4 @@
-{%extends 'all-photos/base.html'%} {% block content %}
+{%extends 'all-photos/base.html'%} {% load static %} {% load bootstrap3 %}{% block content %}
 <div class="container">
 
     <div class="row">
@@ -11,18 +11,18 @@
     </div>
 
     <div class="row">
-
         {% if photos %} {% for photo in photos %}
-        <div class="col-sm-6 col-md-3">
-            <img src="{{photo.photo_image.url}}" class="img-responsive" alt="image">
-            <p> name: {{photo.name}}</p>
-            <p>location: {{photo.location}}</p>
-        </div>
-        <div class="col-sm-6 col-md-3">
-
-            <p>Posted {{photos.pub_date|timesince}} by {{photo.photographer.first_name}}</p>
+        <div class="col-md-3">
+            <div class="card">
+                <img src="{{photo.photo_image.url}}" class="img-responsive" alt="image" style="width: 300px; height: 250px;">
+                <p> category: {{photo.name}}</p>
+                <p>location: {{photo.location}}</p>
+                <p>Posted {{photo.pub_date|timesince}} by {{photo.photographer.first_name}}</p>
+            </div>
         </div>
         {% endfor %} {% endif %}
     </div>
+
+</div>
 </div>
 {% endblock %}
