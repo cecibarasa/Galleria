@@ -32,4 +32,18 @@ def convert_dates(dates):
 
 def picture_of_day(request):
     date = dt.date.today()
-    return render(request, 'all-photos/photos.html', {"date": date,})          
+    return render(request, 'all-photos/photos.html', {"date": date,})
+
+def search_results(request):
+
+    if 'photos' in request.GET and request.GET["photos"]:
+        search_term = request.GET.get("photos")
+        searched_photos = Photos.search_by_category(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'all-photos/search.html',{"message":message,"photos": searched_photos})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'all-photos/search.html',{"message":message})
+

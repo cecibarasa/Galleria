@@ -35,6 +35,12 @@ class Photos(models.Model):
     location = models.ForeignKey(Location,on_delete=models.CASCADE)
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
     pub_date = models.DateTimeField(auto_now_add=True)
+    photos_image = models.ImageField(upload_to = 'photos/')
 
     def save_photo(self):
         self.save()
+
+    @classmethod
+    def search_by_category(cls,search_term):
+        album = cls.objects.filter(category__icontains=search_term)
+        return album    
