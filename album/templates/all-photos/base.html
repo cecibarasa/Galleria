@@ -4,17 +4,17 @@
 
 <head>
     <meta charset="utf-8"> {% if title %}
-    <title>Galleria - {{title}}</title>
+    <title>THE GALLERIA - {{title}}</title>
     {% else %}
-    <title>Galleria </title>
+    <title>THE GALLERIA </title>
     {% endif %} {% block styles %} {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'css/baseg.css' %}"> {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/baseg.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Exo+2&family=Playball&display=swap" rel="stylesheet"> {% endblock %}
 
 </head>
 
 <body>
-    {% include "navbar.html" %} {% block content %}
-    <!-- <h1 class='text-center'>Created on {{date|date:"l d-F Y"}}</h1> {%endblock%} {% block scripts %} -->
+    {% include "navbar.html" %} {% block content %} {%endblock%} {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     {% bootstrap_javascript %} {% endblock %}
 </body>

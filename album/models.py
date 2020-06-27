@@ -46,12 +46,12 @@ class Photos(models.Model):
         return self.name    
 
     @classmethod
-    def search_by_name(cls,search_term):
-        album = cls.objects.filter(name__icontains=search_term)
+    def search_by_category(cls,search_term):
+        album = cls.objects.filter(category__name__icontains=search_term)
         return album
 
     @classmethod
     def todays_album(cls):
-        today = dt.date.today()
-        album = cls.objects.filter(pub_date__date = today)
+        # today = dt.date.today()
+        album = cls.objects.filter()
         return album        
