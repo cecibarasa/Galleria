@@ -24,11 +24,12 @@
                             <p style="font-size: 20px; "><b><i class="fas fa-th-large"></i>&nbsp;&nbsp;&nbsp;</b> {{album_item.category}}</p>
                             <p style=" font-size: 20px "><b><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;&nbsp;</b> {{album_item.location}}</p>
                             <p style=" font-size: 20px "><b><i class="fas fa-user-edit"></i>&nbsp;&nbsp;&nbsp;</b> {{album_item.photographer}}</p>
-                            <p style=" font-size: 20px "> {{tag}}</p>
+                            <p style=" font-size: 20px "> {{tag.name}}</p>
                         </div>
                         <div class="modal-footer">
+                            <input class="form-control input-lg" type="text" value="{{album_item.photo_image.url}}" id="{{album_item.id}}">
+                            <button class="btn btn-success btn-sm" data-dismiss="modal" onclick="copyLink()">Copy</button>
                             <button type="button " class="btn btn-secondary " data-dismiss="modal">Close</button>
-                            <!-- <button type="button " class="btn btn-primary ">Save changes</button> -->
                         </div>
                     </div>
                 </div>

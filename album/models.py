@@ -54,4 +54,9 @@ class Photos(models.Model):
     def todays_album(cls):
         # today = dt.date.today()
         album = cls.objects.filter()
-        return album        
+        return album
+
+    @classmethod
+    def get_album_by_id(cls, id):
+        album_id = cls.objects.get(pk=id)
+        return album_id            
