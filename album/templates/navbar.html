@@ -1,12 +1,12 @@
 <nav class="navbar navbar-inverse" role="navigation" style=" background: linear-gradient(to right, #0f2027, #203a43, #2c5364);">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{% url 'albumToday' %}"><strong>THE GALLERIA</strong> &nbsp;&nbsp;&nbsp;<i class="fas fa-camera-retro"></i></a>
+            <a class="navbar-brand" href="{% url 'albumToday' %}"><strong>THE GALLERIA</strong> &nbsp;&nbsp;&nbsp;<i class="fas fa-camera-retro"></i></a> {% for location in locations %}
+            <a class="btn" id="btn" style="font-size: 12px; font-weight: bold; padding-top: 5px;" onmouseover="this.style.backgroundColor='#ffff'" onmouseout="this.style.backgroundColor='#203a43'" href="{% url 'location' location.id %}">{{location}}</a>{%endfor%}
         </div>
         <ul class="nav navbar-nav">
 
-            {% for location in locations %}
-            <a class="btn btn-outline-info btn-sm" id="btn" style="font-size: 12px; font-weight: bold;" onmouseover="this.style.backgroundColor='#ffff'" onmouseout="this.style.backgroundColor='#203a43'" href="{% url 'location' location.id %}">{{location}}</a>            {%endfor%}
+
         </ul>
         <!-- Adding a search form  -->
         <ul class="col-sm-3 navbar-right">
