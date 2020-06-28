@@ -81,7 +81,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'gallery.urls'
+ROOT_URLCONF = 'album.urls'
 
 TEMPLATES = [
     {
@@ -100,7 +100,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'gallery.wsgi.application'
+WSGI_APPLICATION = 'album.wsgi.application'
 
 
 # Database
