@@ -15,10 +15,10 @@ import django_heroku
 import dj_database_url
 from decouple import config, Csv
 
-MODE = config("MODE", default=) "dev")
+MODE = config("MODE", default="dev")
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-if config('MODE') == "prod":
+if config('MODE')=="prod":
     DATABASES = {
        'default': {
            'ENGINE': 'django.db.backends.postgresql_psycopg2',
