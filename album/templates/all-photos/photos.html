@@ -28,9 +28,16 @@
                         </div>
                         <div class="modal-footer">
                             <input class="form-control input-lg" type="text" value="{{album_item.photo_image.url}}" id="{{album_item.id}}">
-                            <button class="btn btn-success btn-sm" data-dismiss="modal" onclick="copyLink()">Copy</button>
+                            <button class="btn btn-success btn-sm" data-dismiss="modal" onclick="copyLink('{{album_item.id}}.url')">Copy</button>
                             <button type="button " class="btn btn-secondary " data-dismiss="modal">Close</button>
                         </div>
+                        <script>
+                            function copyToClipboard(element) {
+                                var myVar = document.getElementById(element);
+                                myVar.select();
+                                document.execCommand("copy");
+                            }
+                        </script>
                     </div>
                 </div>
             </div>
