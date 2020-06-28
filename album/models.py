@@ -59,4 +59,6 @@ class Photos(models.Model):
     @classmethod
     def get_album_by_id(cls, id):
         album_id = cls.objects.get(id=id)
-        return album_id            
+        return album_id
+    def album_id(self):
+        self.copy()                

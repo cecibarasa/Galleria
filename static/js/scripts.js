@@ -1,5 +1,4 @@
-function copyToClipboard(element) {
-    var myVar = document.getElementById(element);
-    myVar.select();
+copyLink = (element) => {
+    document.getElementById(element).select();
     document.execCommand("copy");
 }
