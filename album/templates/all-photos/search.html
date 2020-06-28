@@ -15,9 +15,9 @@
         <div class="col-md-3">
             <div class="card">
                 <img src="{{photo.photo_image.url}}" class="img-responsive" alt="image" style="width: 300px; height: 250px;">
-                <p><b>Name</b> : {{photo.name}}</p>
-                <p><b>Location</b> {{photo.location}}</p>
-                <p><b>Posted</b> {{photo.pub_date|timesince}} by {{photo.photographer.first_name}}</p>
+                <p><b>~</b> {{photo.name}}</p>
+                <p><b><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;&nbsp;</b> {{photo.location}}</p>
+                <p><b>Posted</b> {{photo.pub_date|timesince}} <i class="fas fa-user-edit"></i>&nbsp;&nbsp;&nbsp; {{photo.photographer.first_name}}</p>
             </div>
         </div>
         {% endfor %} {% endif %}
