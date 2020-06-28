@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import datetime as dt
-from .models import Photos
+from .models import Photos, Location
 
 
 # def convert_dates(dates):
@@ -18,7 +18,14 @@ from .models import Photos
 def picture_of_day(request):
     date = dt.date.today()
     album = Photos.todays_album()
-    return render(request, 'all-photos/photos.html', {"date": date,"album":album})
+    locations = Location.objects.all()
+    return render(request, 'all-photos/photos.html', {"date": date, "album": album, "locations": locations})
+    
+def location(request,location):
+    locations = Location.objects.all()
+    selected_location = Location.objects.get(id = location)
+    album = Photos.objects.filter(location = selected_location.id)
+    return render(request, 'all-photos/location.html', {"location":selected_location,"locations":locations,"album":album})    
 
 def search_results(request):
 
